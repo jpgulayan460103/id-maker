@@ -82,7 +82,7 @@ $students_data = json_decode($string, true);
       font-size: <?= $students_data['lrn']['font_size']."pt" ?>;
       height: 120px;
       line-height: 80px;
-      width: 80;
+      width: 74;
       /* line-height: 10pt */
     }
     #students_name{
@@ -91,7 +91,7 @@ $students_data = json_decode($string, true);
       font-size: <?= $students_data['students_name']['font_size']."pt" ?>;
       height: 190px;
       line-height: 130px;
-      width: 150;
+      width: 138;
       text-align: center;
     }
     
@@ -101,7 +101,7 @@ $students_data = json_decode($string, true);
       font-size: <?= $students_data['students_grade']['font_size']."pt" ?>;
       height: 120px;
       line-height: 80px;
-      width: 131;
+      width: 124;
       /* line-height: 11pt */
     }
   </style>
