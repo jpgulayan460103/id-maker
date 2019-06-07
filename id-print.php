@@ -82,7 +82,7 @@ $students_data = json_decode($string, true);
       font-size: <?= $students_data['lrn']['font_size']."pt" ?>;
       height: 120px;
       line-height: 80px;
-      width: 74;
+      width: 71;
       /* line-height: 10pt */
     }
     #students_name{
@@ -90,7 +90,7 @@ $students_data = json_decode($string, true);
       left: <?= $students_data['students_name']['position']['left'] ?>;
       font-size: <?= $students_data['students_name']['font_size']."pt" ?>;
       height: 190px;
-      line-height: 130px;
+      line-height: 140px;
       width: 138;
       text-align: center;
     }
@@ -100,8 +100,27 @@ $students_data = json_decode($string, true);
       left: <?= $students_data['students_grade']['position']['left'] ?>;
       font-size: <?= $students_data['students_grade']['font_size']."pt" ?>;
       height: 120px;
-      line-height: 80px;
+      line-height: 90px;
       width: 124;
+      /* line-height: 11pt */
+    }
+    #students_type span{
+      outline-color: black;
+    }
+    #students_type{
+      top: <?= $students_data['students_type']['position']['top'] ?>;
+      left: <?= $students_data['students_type']['position']['left'] ?>;
+      font-size: <?= $students_data['students_type']['font_size']."pt" ?>;
+      /* top: 207;
+      left: 196;
+      font-size: 11.98pt; */
+      height: 120px;
+      line-height: 80px;
+      width: 164;
+      letter-spacing: -1.8px;
+      font-family: 'CalibriCustom';
+      color: #00f6ff;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
       /* line-height: 11pt */
     }
   </style>
@@ -135,7 +154,7 @@ $students_data = json_decode($string, true);
         </span>
     </div>
 
-    <img src="images/id_template/front-final.png" alt="" style="border: 1pts solid black;width: 2.258in; margin-left: 10pt">
+    <img src="images/id_template/front.png" alt="" style="border: 1pts solid black;width: 2.258in; margin-left: 10pt">
     <div class="fill-text front" id="lrn">
         <span>
           LRN: <?= $students_data['lrn']['value'] ?>
@@ -149,6 +168,11 @@ $students_data = json_decode($string, true);
     <div class="fill-text front" id="students_grade">
         <span>
           <?= $students_data['students_grade']['value'] ?>
+        </span>
+    </div>
+    <div class="fill-text front" id="students_type">
+        <span>
+          <?= $students_data['students_type']['value'] ?>
         </span>
     </div>
     

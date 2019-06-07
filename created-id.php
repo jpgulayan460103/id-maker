@@ -8,6 +8,14 @@ $get_lrn = isset($_GET['lrn']) ? $_GET['lrn'] : '';
 
 $string = file_get_contents("settings.json");
 $settings = json_decode($string, true);
+
+$string = file_get_contents("students_data/$get_lrn.json");
+$students_data = json_decode($string, true);
+
+$students_grade = $students_data['students_grade']['value'] ? $students_data['students_grade']['value'] : "";
+$students_name = $students_data['students_name']['value'] ? $students_data['students_name']['value'] : "";
+$filename = implode('-',explode(' ',$students_grade))."-".implode('-',explode(' ',$students_name));
+// exit;
 //this will be something like: http://www.yourapp.com/templates/log.php
 $fileUrl = $settings['base_url']."id-print.php?lrn=$get_lrn";
 
@@ -25,7 +33,4 @@ $dompdf->set_option( 'dpi' , '600' );
 $dompdf->render();
 
 // Output the generated PDF to Browser
-$dompdf->stream("$get_lrn-".date("Y-m-d").".pdf",
-    array(
-    'Attachment' => 0
-));
+$dompdf->stream(urlencode($filename).".pdf");

@@ -20,18 +20,6 @@
   <br>
     
     <div class="container">
-    <div class="alert alert-success alert-dismissible fade show" role="alert" ng-if="hasCreatedId" ng-cloak>
-        <strong>Success!</strong> The ID has been generated. <a ng-href="created-id.pdf?lrn={{formData.lrn}}" target="_blank" ng-if="hasCreatedId">Click here to view the ID.</a>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="alert alert-danger alert-dismissible fade show" role="alert" ng-if="hasError" ng-cloak>
-        <strong>Error!</strong> LRN must be filled up.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
         <h1 style="text-align:center">Generate ID</h1>
         <br>
         <div class="row">
@@ -40,49 +28,73 @@
                     <div class="form-group">
                         <label for="lrn">LRN</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="lrn" ng-model="formData.lrn" placeholder="Enter LRN">
+                            <input type="text" class="form-control" id="lrn" ng-model="formData.lrn" placeholder="Enter LRN"  ng-class="{'is-invalid': checkLrn() }" required>
+                            <div class="invalid-feedback">
+                                LRN must be a number and has 12 digits
+                            </div>
                         </div>
                     </div>
                     
                     <div class="form-group">
+                        <label for="students_name">Student Type</label>
+                        <div class="input-group mb-3">
+                            <!-- <input type="text" class="form-control" id="students_type" ng-model="formData.students_type" placeholder="Enter Student Type" > -->
+
+                            <div class="form-control">
+                                <input class="form-control-input" type="radio" ng-model="formData.students_type" id="exampleRadios1" value="ELEMENTARY DEPARTMENT" required>
+                                <label class="form-control-label" for="exampleRadios1">
+                                    ELEMENTARY
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <input class="form-control-input" type="radio" ng-model="formData.students_type" id="exampleRadios2" value="HIGH SCHOOL DEPARTMENT">
+                                <label class="form-control-label" for="exampleRadios2">
+                                    HIGH SCHOOL
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="students_name">Student's Name</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="students_name" ng-model="formData.students_name" placeholder="Enter Student's Name">
+                            <input type="text" class="form-control" id="students_name" ng-model="formData.students_name" placeholder="Enter Student's Name" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="students_grade">Student's Grade</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="students_grade" ng-model="formData.students_grade" placeholder="Enter Student's Grade">
+                            <input type="text" class="form-control" id="students_grade" ng-model="formData.students_grade" placeholder="Enter Student's Grade" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="guardians_name">Guardian's Name</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="guardians_name" ng-model="formData.guardians_name" placeholder="Enter Guardian's Name">
+                            <input type="text" class="form-control" id="guardians_name" ng-model="formData.guardians_name" placeholder="Enter Guardian's Name" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="guardians_address">Guardian's Address</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="guardians_address" ng-model="formData.guardians_address" placeholder="Enter Guardian's Address">
+                            <input type="text" class="form-control" id="guardians_address" ng-model="formData.guardians_address" placeholder="Enter Guardian's Address" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="guardians_number">Guardian's Contact Number</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="guardians_number" ng-model="formData.guardians_number" placeholder="Enter Guardian's Contact Number">
+                            <input type="text" class="form-control" id="guardians_number" ng-model="formData.guardians_number" placeholder="Enter Guardian's Contact Number"  ng-class="{'is-invalid': checkContactNumber() }"  required>
+                            <div class="invalid-feedback">
+                                Contact Number must be a number and has 11 digits
+                            </div>
                         </div>
                     </div>
 
                     <button type="submit" class="btn btn-primary" ng-click="createId()">Generate</button>
-                    
 
-                    
                 </form>
             </div>
 
@@ -91,48 +103,67 @@
                     <div class="form-group">
                         <label for="lrn">LRN Font Size</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="lrn" ng-model="settings.lrn.font_size" placeholder="Enter LRN Font Size">
+                            <input type="text" class="form-control" id="lrn" ng-model="settings.lrn.font_size" placeholder="Enter LRN Font Size" required>
                         </div>
                     </div>
                     
                     <div class="form-group">
+                        <label for="students_name">Student Type</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="students_type" ng-model="settings.students_type.font_size" placeholder="Enter Student Type Font Size" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="students_name">Student's Name Font Size</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="students_name" ng-model="settings.students_name.font_size" placeholder="Enter Student's Name Font Size">
+                            <input type="text" class="form-control" id="students_name" ng-model="settings.students_name.font_size" placeholder="Enter Student's Name Font Size" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="students_grade">Student's Grade Font Size</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="students_grade" ng-model="settings.students_grade.font_size" placeholder="Enter Student's Grade Font Size">
+                            <input type="text" class="form-control" id="students_grade" ng-model="settings.students_grade.font_size" placeholder="Enter Student's Grade Font Size" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="guardians_name">Guardian's Name Font Size</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="guardians_name" ng-model="settings.guardians_name.font_size" placeholder="Enter Guardian's Name Font Size">
+                            <input type="text" class="form-control" id="guardians_name" ng-model="settings.guardians_name.font_size" placeholder="Enter Guardian's Name Font Size" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="guardians_address">Guardian's Address Font Size</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="guardians_address" ng-model="settings.guardians_address.font_size" placeholder="Enter Guardian's Address Font Size">
+                            <input type="text" class="form-control" id="guardians_address" ng-model="settings.guardians_address.font_size" placeholder="Enter Guardian's Address Font Size" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="guardians_number">Guardian's Contact Number Font Size</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="guardians_number" ng-model="settings.guardians_number.font_size" placeholder="Enter Guardian's Contact Number Font Size">
+                            <input type="text" class="form-control" id="guardians_number" ng-model="settings.guardians_number.font_size" placeholder="Enter Guardian's Contact Number Font Size" required>
                         </div>
                     </div>
                     
                 </form>
             </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+
         </div>
+            <div class="alert alert-success alert-dismissible fade show" role="alert" ng-if="hasCreatedId" ng-cloak>
+                <strong>Success!</strong> The ID has been generated. <a ng-href="created-id.pdf?lrn={{createdLrn}}" ng-if="hasCreatedId">If the download doesn't start automatically in a few seconds, please click here.</a>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         <hr>
         <h1 style="text-align:center">View Generated ID</h1>
         <br>
@@ -167,10 +198,13 @@
     app.controller('myCtrl', function($scope,$http, $sce, $window) {
         
         $scope.formData = {};
+        $scope.formData.students_type = null;
+        $scope.createdLrn = '';
         $scope.settings = {
-            lrn: {position: {'top': 121.8, 'left': 273.4}, font_size: 8},
-            students_name: {position: {'top': 153.6, 'left': 205.8}, font_size: 13.32},
-            students_grade: {position: {'top': 186.6, 'left': 212.8}, font_size: 9},
+            lrn: {position: {'top': 121.8, 'left': 278.4}, font_size: 8},
+            students_name: {position: {'top': 153.6, 'left': 208.8}, font_size: 13.32},
+            students_grade: {position: {'top': 186.6, 'left': 215.8}, font_size: 9},
+            students_type: {position: {'top': 207, 'left': 196}, font_size: 11.98},
             guardians_name: {position: {'top': 59.6, 'left': 25.8}, font_size: 11.73},
             guardians_address: {position: {'top': 74.1, 'left': 25.6}, font_size: 11.73},
             guardians_number: {position: {'top': 88.6, 'left': 25.8}, font_size: 11.73}
@@ -184,9 +218,16 @@
             window.open("created-id.pdf?lrn=" + $scope.viewLrn);
         }
 
+        $scope.checkContactNumber = function() {
+            return $scope.formData.guardians_number.length != 11 || isNaN($scope.formData.guardians_number);
+        }
+        $scope.checkLrn = function() {
+            return $scope.formData.lrn.length != 12 || isNaN($scope.formData.lrn);
+        }
+
         $scope.createId = function() {
             $scope.hasError = false;
-            if($scope.formData.lrn && $scope.formData.lrn.trim() != ""){
+            if($scope.formData.lrn && $scope.formData.lrn.trim() != "" && !$scope.checkContactNumber() && !$scope.checkLrn()){
                 $scope.hasCreatedId = false;
                 $http({
                     method: 'POST',
@@ -201,6 +242,10 @@
                 }).then(function(response) {
                     console.log(response);
                     $scope.hasCreatedId = true;
+                    $scope.createdLrn = $scope.formData.lrn;
+                    window.location = "created-id.pdf?lrn="+$scope.createdLrn;
+                    $scope.formData = {};
+                    $scope.formData.students_type = null;
                     // window.open("created-id.pdf?lrn=" + response.data.lrn.value,'newwindow','width=900,height=400');
                 }, function(rejection) {
                     $scope.submit = false;
