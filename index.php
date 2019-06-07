@@ -159,7 +159,7 @@
 
         </div>
             <div class="alert alert-success alert-dismissible fade show" role="alert" ng-if="hasCreatedId" ng-cloak>
-                <strong>Success!</strong> The ID has been generated. <a ng-href="created-id.pdf?lrn={{createdLrn}}" ng-if="hasCreatedId">If the download doesn't start automatically in a few seconds, please click here.</a>
+                <strong>Success!</strong> The ID of <b ng-bind="createdStudentName"></b> has been generated. <a ng-href="created-id.pdf?lrn={{createdLrn}}" ng-if="hasCreatedId">If the download doesn't start automatically in a few seconds, please click here.</a>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -200,6 +200,7 @@
         $scope.formData = {};
         $scope.formData.students_type = null;
         $scope.createdLrn = '';
+        $scope.createdStudentName = '';
         $scope.settings = {
             lrn: {position: {'top': 121.8, 'left': 278.4}, font_size: 8},
             students_name: {position: {'top': 153.6, 'left': 208.8}, font_size: 13.32},
@@ -227,6 +228,7 @@
 
         $scope.createId = function() {
             $scope.hasError = false;
+            $scope.createdLrn = false;
             if($scope.formData.lrn && $scope.formData.lrn.trim() != "" && !$scope.checkContactNumber() && !$scope.checkLrn()){
                 $scope.hasCreatedId = false;
                 $http({
@@ -243,6 +245,7 @@
                     console.log(response);
                     $scope.hasCreatedId = true;
                     $scope.createdLrn = $scope.formData.lrn;
+                    $scope.createdStudentName = $scope.formData.students_name;
                     window.location = "created-id.pdf?lrn="+$scope.createdLrn;
                     $scope.formData = {};
                     $scope.formData.students_type = null;
