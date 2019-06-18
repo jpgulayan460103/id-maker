@@ -17,7 +17,9 @@ $students_name = $students_data['students_name']['value'] ? $students_data['stud
 $filename = implode('-',explode(' ',$students_grade))."-".implode('-',explode(' ',$students_name));
 // exit;
 //this will be something like: http://www.yourapp.com/templates/log.php
-$fileUrl = $settings['base_url']."id-print.php?lrn=$get_lrn";
+$fileUrl = "http://{$_SERVER['HTTP_HOST']}"."/id-print.php?lrn=$get_lrn";
+// echo $fileUrl;
+// exit;
 
 //get file content after the script is server-side interpreted
 $fileContent = file_get_contents( $fileUrl ) ;
