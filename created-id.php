@@ -17,7 +17,22 @@ $students_name = $students_data['students_name']['value'] ? $students_data['stud
 $filename = implode('-',explode(' ',$students_grade))."-".implode('-',explode(' ',$students_name));
 // exit;
 //this will be something like: http://www.yourapp.com/templates/log.php
-$fileUrl = "http://{$_SERVER['HTTP_HOST']}"."/id-print.php?lrn=$get_lrn";
+
+
+
+$url = $_SERVER['REQUEST_URI']; //returns the current URL
+$parts = explode('/',$url);
+$dir = $_SERVER['SERVER_NAME'];
+for ($i = 0; $i < count($parts) - 1; $i++) {
+ $dir .= $parts[$i] . "/";
+}
+// echo $dir;
+
+
+$fileUrl = "http://$dir"."id-print.php?lrn=$get_lrn";
+
+
+
 // echo $fileUrl;
 // exit;
 

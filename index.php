@@ -159,7 +159,7 @@
 
         </div>
             <div class="alert alert-success alert-dismissible fade show" role="alert" ng-if="hasCreatedId" ng-cloak>
-                <strong>Success!</strong> The ID of <b ng-bind="createdStudentName"></b> has been generated. <a ng-href="created-id.pdf?lrn={{createdLrn}}" ng-if="hasCreatedId">If the download doesn't start automatically in a few seconds, please click here.</a>
+                <strong>Success!</strong> The ID of <b ng-bind="createdStudentName"></b> has been generated. <a ng-href="created-id.php?lrn={{createdLrn}}" ng-if="hasCreatedId">If the download doesn't start automatically in a few seconds, please click here.</a>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -216,7 +216,7 @@
         $scope.viewLrn = "";
         
         $scope.viewId = function() {
-            window.open("created-id.pdf?lrn=" + $scope.viewLrn);
+            window.open("created-id.php?lrn=" + $scope.viewLrn);
         }
 
         $scope.checkContactNumber = function() {
@@ -246,10 +246,10 @@
                     $scope.hasCreatedId = true;
                     $scope.createdLrn = $scope.formData.lrn;
                     $scope.createdStudentName = $scope.formData.students_name;
-                    window.location = "created-id.pdf?lrn="+$scope.createdLrn;
+                    window.location = "created-id.php?lrn="+$scope.createdLrn;
                     $scope.formData = {};
                     $scope.formData.students_type = null;
-                    // window.open("created-id.pdf?lrn=" + response.data.lrn.value,'newwindow','width=900,height=400');
+                    // window.open("created-id.php?lrn=" + response.data.lrn.value,'newwindow','width=900,height=400');
                 }, function(rejection) {
                     $scope.submit = false;
                 });
