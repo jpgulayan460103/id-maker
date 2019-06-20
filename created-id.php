@@ -14,6 +14,9 @@ $students_data = json_decode($string, true);
 
 $students_grade = $students_data['students_grade']['value'] ? $students_data['students_grade']['value'] : "";
 $students_name = $students_data['students_name']['value'] ? $students_data['students_name']['value'] : "";
+
+// var_dump($students_data);
+// exit;
 $filename = implode('-',explode(' ',$students_grade))."-".implode('-',explode(' ',$students_name));
 // exit;
 //this will be something like: http://www.yourapp.com/templates/log.php
@@ -50,4 +53,5 @@ $dompdf->set_option( 'dpi' , '600' );
 $dompdf->render();
 
 // Output the generated PDF to Browser
-$dompdf->stream(urlencode($filename).".pdf");
+$dompdf->stream(urlencode($filename).".pdf", array("Attachment" => false));
+// $dompdf->stream(urlencode($filename).".pdf");

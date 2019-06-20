@@ -41,15 +41,15 @@
                             <!-- <input type="text" class="form-control" id="students_type" ng-model="formData.students_type" placeholder="Enter Student Type" > -->
 
                             <div class="form-control">
-                                <input class="form-control-input" type="radio" ng-model="formData.students_type" id="exampleRadios1" value="ELEMENTARY DEPARTMENT" required>
+                                <input class="form-control-input" type="radio" ng-model="formData.students_type" id="exampleRadios1" value="JUNIOR" required>
                                 <label class="form-control-label" for="exampleRadios1">
-                                    ELEMENTARY
+                                    JUNIOR HIGH
                                 </label>
                             </div>
                             <div class="form-control">
-                                <input class="form-control-input" type="radio" ng-model="formData.students_type" id="exampleRadios2" value="HIGH SCHOOL DEPARTMENT">
+                                <input class="form-control-input" type="radio" ng-model="formData.students_type" id="exampleRadios2" value="SENIOR">
                                 <label class="form-control-label" for="exampleRadios2">
-                                    HIGH SCHOOL
+                                    SENIOR HIGH
                                 </label>
                             </div>
                         </div>
@@ -66,6 +66,12 @@
                         <label for="students_grade">Student's Grade</label>
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" id="students_grade" ng-model="formData.students_grade" placeholder="Enter Student's Grade" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="students_grade">Student's Strand</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="students_strand" ng-model="formData.students_strand" placeholder="Enter Student's Strand" required>
                         </div>
                     </div>
 
@@ -125,6 +131,13 @@
                         <label for="students_grade">Student's Grade Font Size</label>
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" id="students_grade" ng-model="settings.students_grade.font_size" placeholder="Enter Student's Grade Font Size" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="students_grade">Student's Strand Font Size</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="students_strand" ng-model="settings.students_strand.font_size" placeholder="Enter Student's Strand Font Size" required>
                         </div>
                     </div>
 
@@ -202,13 +215,14 @@
         $scope.createdLrn = '';
         $scope.createdStudentName = '';
         $scope.settings = {
-            lrn: {position: {'top': 121.8, 'left': 278.4}, font_size: 8},
-            students_name: {position: {'top': 153.6, 'left': 208.8}, font_size: 13.32},
-            students_grade: {position: {'top': 186.6, 'left': 215.8}, font_size: 9},
-            students_type: {position: {'top': 207, 'left': 196}, font_size: 11.98},
-            guardians_name: {position: {'top': 59.6, 'left': 25.8}, font_size: 11.73},
-            guardians_address: {position: {'top': 74.1, 'left': 25.6}, font_size: 11.73},
-            guardians_number: {position: {'top': 88.6, 'left': 25.8}, font_size: 11.73}
+            lrn: {position: {'top': "127.8", 'left': "370.8"}, font_size: "9.55"},
+            students_name: {position: {'top': "102.6", 'left': "370.8"}, font_size: "13.53"},
+            students_grade: {position: {'top': "116.6", 'left': "370.8"}, font_size: "9.55"},
+            students_strand: {position: {'top': "127.8", 'left': "370.8"}, font_size: "9.55"},
+            students_type: {position: {'top': "207", 'left': "196"}, font_size: "11.98"},
+            guardians_name: {position: {'top': "124.6", 'left': "35.8"}, font_size: "13.14"},
+            guardians_address: {position: {'top': "145.1", 'left': "57.8"}, font_size: "13.14"},
+            guardians_number: {position: {'top': "170.1", 'left': "35.8"}, font_size: "13.14"}
         }
 
         $scope.hasCreatedId = false;

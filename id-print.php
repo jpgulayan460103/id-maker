@@ -29,18 +29,21 @@ $students_data = json_decode($string, true);
     font-family: 'CalibriCustom';
     src: url("fonts/Calibri.ttf");
   }
+  *{
+    color: red;
+  }
 
   .back {
-    font-family: 'BernhardModBTBold';
+    /* font-family: 'BernhardModBTBold'; */
     text-align: center;
   }
   .front {
-    font-family: 'Copperplate';
+    /* font-family: 'Copperplate'; */
     text-align: center;
   }
   .fill-text{
     position:absolute;
-    /* border: 1pt solid black; */
+    border: 1pt solid black;
     /* text-shadow: 1px 0 0 */
   }
 
@@ -51,63 +54,84 @@ $students_data = json_decode($string, true);
 
 
     #guardians_name{
+      font-family: 'ArialBoldCustom';
       top: <?= $students_data['guardians_name']['position']['top'] ?>;
       left: <?= $students_data['guardians_name']['position']['left'] ?>;
       font-size: <?= $students_data['guardians_name']['font_size']."pt" ?>;
       height: 12;
-      width: 131;
+      width: 200;
       /* line-height: 15pt */
     }
     #guardians_address{
+      font-family: 'ArialBoldCustom';
       top: <?= $students_data['guardians_address']['position']['top'] ?>;
       left: <?= $students_data['guardians_address']['position']['left'] ?>;
       font-size: <?= $students_data['guardians_address']['font_size']."pt" ?>;
       height: 15;
-      width: 131;
-      /* line-height: 15pt */
+      width: 150;
+      line-height: 12pt;
     }
     #guardians_number{
+      font-family: 'ArialBoldCustom';
       top: <?= $students_data['guardians_number']['position']['top'] ?>;
       left: <?= $students_data['guardians_number']['position']['left'] ?>;
       font-size: <?= $students_data['guardians_number']['font_size']."pt" ?>;
       height: 15;
-      width: 131;
+      width: 200;
       /* line-height: 15pt */
     }
     #lrn{
-      font-family: 'CalibriCustom';
+      font-family: 'ArialBoldCustom';
       color: white;
-      top: <?= $students_data['lrn']['position']['top'] ?>;
+      top: <?=  $students_data['students_type']['value'] == 'SENIOR' ? ($students_data['lrn']['position']['top'] + 11) : $students_data['lrn']['position']['top'] ?>;
       left: <?= $students_data['lrn']['position']['left'] ?>;
       font-size: <?= $students_data['lrn']['font_size']."pt" ?>;
       height: 120px;
-      line-height: 80px;
-      width: 71;
+      line-height: 140px;
+      width: 160;
+      /* line-height: 10pt */
+    }
+    #students_strand{
+      font-family: 'ArialBoldCustom';
+      color: white;
+      top: <?= $students_data['students_strand']['position']['top'] ?>;
+      left: <?= $students_data['students_strand']['position']['left'] ?>;
+      font-size: <?= $students_data['students_strand']['font_size']."pt" ?>;
+      height: 120px;
+      line-height: 140px;
+      width: 160;
       /* line-height: 10pt */
     }
     #students_name{
+      font-family: 'ArialBoldCustom';
       top: <?= $students_data['students_name']['position']['top'] ?>;
       left: <?= $students_data['students_name']['position']['left'] ?>;
       font-size: <?= $students_data['students_name']['font_size']."pt" ?>;
       height: 190px;
       line-height: 140px;
-      width: 138;
+      width: 160;
       text-align: center;
+      /* text-decoration: underline; */
+    }
+    #students_name span{
+      border-bottom: 1pt solid red;
     }
     
     #students_grade{
+      font-family: 'ArialBoldCustom';
       top: <?= $students_data['students_grade']['position']['top'] ?>;
       left: <?= $students_data['students_grade']['position']['left'] ?>;
       font-size: <?= $students_data['students_grade']['font_size']."pt" ?>;
       height: 120px;
-      line-height: 90px;
-      width: 124;
+      line-height: 140px;
+      width: 160;
       /* line-height: 11pt */
     }
     #students_type span{
       outline-color: black;
     }
     #students_type{
+      font-family: 'ArialBoldCustom';
       top: <?= $students_data['students_type']['position']['top'] ?>;
       left: <?= $students_data['students_type']['position']['left'] ?>;
       font-size: <?= $students_data['students_type']['font_size']."pt" ?>;
@@ -137,7 +161,7 @@ $students_data = json_decode($string, true);
   
   <!-- <img src="images/id_template/front.png" alt="" style="border: 1pts solid black;width: 2.26in"> -->
   </center>
-    <img src="images/id_template/back-final.png" alt="" style="border: 1pts solid black;width: 2.258in; margin-left: 10pt">
+    <img src="images/id_template/back.png" alt="" style="border: 1pts solid black;width: 3.5in; margin-left: 10pt">
     <div class="fill-text back" id="guardians_name">
         <span>
           <?= $students_data['guardians_name']['value'] ?>
@@ -154,27 +178,27 @@ $students_data = json_decode($string, true);
         </span>
     </div>
 
-    <img src="images/id_template/front.png" alt="" style="border: 1pts solid black;width: 2.258in; margin-left: 10pt">
+    <img src="images/id_template/front-final.png" alt="" style="border: 1pts solid black;width: 3.5in; margin-left: 10pt">
     <div class="fill-text front" id="lrn">
         <span>
           LRN: <?= $students_data['lrn']['value'] ?>
         </span>
     </div>
     <div class="fill-text front" id="students_name">
-        <span>
-          <?= $students_data['students_name']['value'] ?>
-        </span>
+        <span><?= $students_data['students_name']['value'] ?></span>
     </div>
     <div class="fill-text front" id="students_grade">
         <span>
           <?= $students_data['students_grade']['value'] ?>
         </span>
     </div>
-    <div class="fill-text front" id="students_type">
+    <?php if($students_data['students_type']['value'] == 'SENIOR'){  ?>
+    <div class="fill-text front" id="students_strand">
         <span>
-          <?= $students_data['students_type']['value'] ?>
+          <?= $students_data['students_strand']['value'] ?>
         </span>
     </div>
+    <?php } ?>
     
 </body>
 </html>
