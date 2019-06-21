@@ -4,6 +4,7 @@ if($_POST){
     $lrn = isset($_POST['formData']['lrn']) ? trim($_POST['formData']['lrn']) : "";
     $students_name = isset($_POST['formData']['students_name']) ? trim($_POST['formData']['students_name']) : "";
     $students_grade = isset($_POST['formData']['students_grade']) ? trim($_POST['formData']['students_grade']) : "";
+    $students_grade_options = isset($_POST['formData']['students_grade_options']) ? trim($_POST['formData']['students_grade_options']) : "";
     $students_type = isset($_POST['formData']['students_type']) ? trim($_POST['formData']['students_type']) : "";
     $students_strand = isset($_POST['formData']['students_strand']) ? trim($_POST['formData']['students_strand']) : "";
     $guardians_name = isset($_POST['formData']['guardians_name']) ? trim($_POST['formData']['guardians_name']) : "";
@@ -13,6 +14,7 @@ if($_POST){
     $lrn_settings = isset($_POST['settings']['lrn']) ? $_POST['settings']['lrn'] : array();
     $students_name_settings = isset($_POST['settings']['students_name']) ? $_POST['settings']['students_name'] : array();
     $students_grade_settings = isset($_POST['settings']['students_grade']) ? $_POST['settings']['students_grade'] : array();
+    $students_grade_options_settings = isset($_POST['settings']['students_grade_options']) ? $_POST['settings']['students_grade_options'] : array();
     $students_type_settings = isset($_POST['settings']['students_type']) ? $_POST['settings']['students_type'] : array();
     $students_strand_settings = isset($_POST['settings']['students_strand']) ? $_POST['settings']['students_strand'] : array();
     $guardians_name_settings = isset($_POST['settings']['guardians_name']) ? $_POST['settings']['guardians_name'] : array();
@@ -24,6 +26,7 @@ if($_POST){
     $lrn_settings['value'] = $lrn;
     $students_name_settings['value'] = $students_name;
     $students_grade_settings['value'] = $students_grade;
+    $students_grade_options_settings['value'] = $students_grade_options;
     $students_type_settings['value'] = $students_type;
     $students_strand_settings['value'] = $students_strand;
     $guardians_name_settings['value'] = $guardians_name;
@@ -36,6 +39,7 @@ if($_POST){
         'lrn' => $lrn_settings,
         'students_name' => $students_name_settings,
         'students_grade' => $students_grade_settings,
+        'students_grade_options' => $students_grade_options_settings,
         'students_type' => $students_type_settings,
         'students_strand' => $students_strand_settings,
         'guardians_name' => $guardians_name_settings,

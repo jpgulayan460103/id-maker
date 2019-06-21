@@ -2,7 +2,37 @@
 $get_lrn = isset($_GET['lrn']) ? $_GET['lrn'] : '';
 $string = file_get_contents("students_data/$get_lrn.json");
 $students_data = json_decode($string, true);
-// echo var_dump($students_data);
+
+switch (strtolower($students_data['students_grade_options']['value'])) {
+  case 'grade 7 -':
+    $back = 'grade-7-back';
+    $front = 'grade-7-front';
+    break;
+  case 'grade 8 -':
+    $back = 'grade-8-back';
+    $front = 'grade-8-front';
+    break;
+  case 'grade 9 -':
+    $back = 'grade-9-back';
+    $front = 'grade-9-front';
+    break;
+  case 'grade 10 -':
+    $back = 'grade-10-back';
+    $front = 'grade-10-front';
+    break;
+  case 'grade 11 -':
+  case 'grade 12 -':
+    $back = 'senior-high-back';
+    $front = 'senior-high-front';
+    break;
+  default:
+    $back = 'back';
+    $front = 'front';
+    break;
+}
+
+// echo var_dump($back);
+// echo var_dump($front);
 // exit;
 ?>
 
@@ -43,7 +73,7 @@ $students_data = json_decode($string, true);
   }
   .fill-text{
     position:absolute;
-    /* border: 1pt solid black; */
+    border: 1pt solid black;
     /* text-shadow: 1px 0 0 */
   }
 
@@ -161,7 +191,7 @@ $students_data = json_decode($string, true);
   
   <!-- <img src="images/id_template/front.png" alt="" style="border: 1pts solid black;width: 2.26in"> -->
   </center>
-    <img src="images/id_template/back.png" alt="" style="border: 1pts solid black;width: 3.5in; margin-left: 10pt">
+    <img src="images/id_template/<?= $back ?>.png" alt="" style="border: 1pts solid black;width: 3.5in; margin-left: 10pt">
     <div class="fill-text back" id="guardians_name">
         <span>
           <?= $students_data['guardians_name']['value'] ?>
@@ -178,7 +208,7 @@ $students_data = json_decode($string, true);
         </span>
     </div>
 
-    <img src="images/id_template/front-final.png" alt="" style="border: 1pts solid black;width: 3.5in; margin-left: 10pt">
+    <img src="images/id_template/<?= $front ?>.png" alt="" style="border: 1pts solid black;width: 3.5in; margin-left: 7pt">
     <div class="fill-text front" id="lrn">
         <span>
           LRN: <?= $students_data['lrn']['value'] ?>

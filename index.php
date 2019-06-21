@@ -35,10 +35,10 @@
                         </div>
                     </div>
                     
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="students_name">Student Type</label>
                         <div class="input-group mb-3">
-                            <!-- <input type="text" class="form-control" id="students_type" ng-model="formData.students_type" placeholder="Enter Student Type" > -->
+                            <input type="text" class="form-control" id="students_type" ng-model="formData.students_type" placeholder="Enter Student Type" >
 
                             <div class="form-control">
                                 <input class="form-control-input" type="radio" ng-model="formData.students_type" id="exampleRadios1" value="JUNIOR" required>
@@ -53,7 +53,7 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                         <label for="students_name">Student's Name</label>
@@ -71,6 +71,8 @@
                                 <option value="Grade 8 -">Grade 8 -</option>
                                 <option value="Grade 9 -">Grade 9 -</option>
                                 <option value="Grade 10 -">Grade 10 -</option>
+                                <option value="Grade 11 -">Grade 11 -</option>
+                                <option value="Grade 12 -">Grade 12 -</option>
                             </select>
                             <input type="text" class="form-control" id="students_section" ng-model="formData.students_section" placeholder="Enter Student's Section" required>
                         </div>
@@ -120,12 +122,12 @@
                         </div>
                     </div>
                     
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="students_name">Student Type</label>
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" id="students_type" ng-model="settings.students_type.font_size" placeholder="Enter Student Type Font Size" required>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                         <label for="students_name">Student's Name Font Size</label>
