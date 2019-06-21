@@ -60,7 +60,7 @@ switch (strtolower($students_data['students_grade_options']['value'])) {
     src: url("fonts/Calibri.ttf");
   }
   *{
-    color: red;
+    color: black;
   }
 
   .back {
@@ -73,7 +73,7 @@ switch (strtolower($students_data['students_grade_options']['value'])) {
   }
   .fill-text{
     position:absolute;
-    border: 1pt solid black;
+    /* border: 1pt solid black; */
     /* text-shadow: 1px 0 0 */
   }
 
@@ -143,9 +143,9 @@ switch (strtolower($students_data['students_grade_options']['value'])) {
       text-align: center;
       /* text-decoration: underline; */
     }
-    #students_name span{
+    /* #students_name span{
       border-bottom: 1pt solid red;
-    }
+    } */
     
     #students_grade{
       font-family: 'ArialBoldCustom';

@@ -24,7 +24,7 @@
         <br>
         <div class="row">
             <div class="col-6">
-                <form>
+                <form ng-submit="createId()">
                     <div class="form-group">
                         <label for="lrn">LRN</label>
                         <div class="input-group mb-3">
@@ -65,7 +65,7 @@
                     <div class="form-group">
                         <label for="students_grade">Student's Grade</label>
                         <div class="input-group mb-3">
-                            <select name="" id="" class="form-control" ng-model="formData.students_grade_options">
+                            <select name="" id="" class="form-control" ng-model="formData.students_grade_options" required>
                                 <option value="">Select Grade</option>
                                 <option value="Grade 7 -">Grade 7 -</option>
                                 <option value="Grade 8 -">Grade 8 -</option>
@@ -77,7 +77,7 @@
                             <input type="text" class="form-control" id="students_section" ng-model="formData.students_section" placeholder="Enter Student's Section" required>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-if="formData.students_grade_options == 'Grade 11 -' || formData.students_grade_options == 'Grade 12 -'">
                         <label for="students_grade">Student's Strand</label>
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" id="students_strand" ng-model="formData.students_strand" placeholder="Enter Student's Strand" required>
@@ -108,7 +108,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary" ng-click="createId()">Generate</button>
+                    <button type="submit" class="btn btn-primary">Generate</button>
 
                 </form>
             </div>
@@ -143,7 +143,7 @@
                         </div>
                     </div>
                     
-                    <div class="form-group">
+                    <div class="form-group" ng-if="formData.students_grade_options == 'Grade 11 -' || formData.students_grade_options == 'Grade 12 -'">
                         <label for="students_grade">Student's Strand Font Size</label>
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" id="students_strand" ng-model="settings.students_strand.font_size" placeholder="Enter Student's Strand Font Size" required>
@@ -243,16 +243,18 @@
         }
 
         $scope.checkContactNumber = function() {
+            if($scope.formData.guardians_number == null){return false};
             return $scope.formData.guardians_number && $scope.formData.guardians_number.length != 11 || isNaN($scope.formData.guardians_number);
         }
         $scope.checkLrn = function() {
+            if($scope.formData.lrn == null){return false};
             return $scope.formData.lrn && $scope.formData.lrn.length != 12 || isNaN($scope.formData.lrn);
         }
 
         $scope.createId = function() {
             $scope.hasError = false;
             $scope.createdLrn = false;
-            $scope.formData.students_grade = $scope.formData.students_grade_options ? $scope.formData.students_grade_options : ""+" "+$scope.formData.students_section ? $scope.formData.students_section : "";
+            $scope.formData.students_grade = $scope.formData.students_grade_options ? $scope.formData.students_grade_options +" "+$scope.formData.students_section : "";
             if($scope.formData.lrn && $scope.formData.lrn.trim() != "" && !$scope.checkContactNumber() && !$scope.checkLrn()){
                 $scope.hasCreatedId = false;
                 $http({

@@ -53,5 +53,5 @@ $dompdf->set_option( 'dpi' , '600' );
 $dompdf->render();
 
 // Output the generated PDF to Browser
-$dompdf->stream(urlencode($filename).".pdf", array("Attachment" => false));
-// $dompdf->stream(urlencode($filename).".pdf");
+// $dompdf->stream(urlencode($filename).".pdf", array("Attachment" => false));
+$dompdf->stream(urlencode($filename).".pdf");
