@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
     <style>
         [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-    ng-cloak {
             display: none !important;
@@ -65,7 +65,14 @@
                     <div class="form-group">
                         <label for="students_grade">Student's Grade</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="students_grade" ng-model="formData.students_grade" placeholder="Enter Student's Grade" required>
+                            <select name="" id="" class="form-control" ng-model="formData.students_grade_options">
+                                <option value="">Select Grade</option>
+                                <option value="Grade 7 -">Grade 7 -</option>
+                                <option value="Grade 8 -">Grade 8 -</option>
+                                <option value="Grade 9 -">Grade 9 -</option>
+                                <option value="Grade 10 -">Grade 10 -</option>
+                            </select>
+                            <input type="text" class="form-control" id="students_section" ng-model="formData.students_section" placeholder="Enter Student's Section" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -200,10 +207,10 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="js/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="js/angular.min.js" crossorigin="anonymous"></script>
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
 
 
     <script>
@@ -234,15 +241,16 @@
         }
 
         $scope.checkContactNumber = function() {
-            return $scope.formData.guardians_number.length != 11 || isNaN($scope.formData.guardians_number);
+            return $scope.formData.guardians_number && $scope.formData.guardians_number.length != 11 || isNaN($scope.formData.guardians_number);
         }
         $scope.checkLrn = function() {
-            return $scope.formData.lrn.length != 12 || isNaN($scope.formData.lrn);
+            return $scope.formData.lrn && $scope.formData.lrn.length != 12 || isNaN($scope.formData.lrn);
         }
 
         $scope.createId = function() {
             $scope.hasError = false;
             $scope.createdLrn = false;
+            $scope.formData.students_grade = $scope.formData.students_grade_options ? $scope.formData.students_grade_options : ""+" "+$scope.formData.students_section ? $scope.formData.students_section : "";
             if($scope.formData.lrn && $scope.formData.lrn.trim() != "" && !$scope.checkContactNumber() && !$scope.checkLrn()){
                 $scope.hasCreatedId = false;
                 $http({

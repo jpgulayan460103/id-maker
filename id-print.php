@@ -43,7 +43,7 @@ $students_data = json_decode($string, true);
   }
   .fill-text{
     position:absolute;
-    border: 1pt solid black;
+    /* border: 1pt solid black; */
     /* text-shadow: 1px 0 0 */
   }
 
