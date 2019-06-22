@@ -27,8 +27,9 @@
                 <form ng-submit="createId()">
                     <div class="form-group">
                         <label for="lrn">LRN</label>
+                        <small><b><i>(Characters Remaining: {{ countCharactersRemaining(formData.lrn,12) }})</i></b></small>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="lrn" ng-model="formData.lrn" placeholder="Enter LRN"  ng-class="{'is-invalid': checkLrn() }" required>
+                            <input type="text" class="form-control" id="lrn" ng-model="formData.lrn" placeholder="Enter LRN"  ng-class="{'is-invalid': checkLrn() }" ng-maxlength="12" maxlength="12" required>
                             <div class="invalid-feedback">
                                 LRN must be a number and has 12 digits
                             </div>
@@ -100,8 +101,9 @@
 
                     <div class="form-group">
                         <label for="guardians_number">Guardian's Contact Number</label>
+                        <small><b><i>(Characters Remaining: {{ countCharactersRemaining(formData.guardians_number,11) }})</i></b></small>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="guardians_number" ng-model="formData.guardians_number" placeholder="Enter Guardian's Contact Number"  ng-class="{'is-invalid': checkContactNumber() }"  required>
+                            <input type="text" class="form-control" id="guardians_number" ng-model="formData.guardians_number" placeholder="Enter Guardian's Contact Number"  ng-class="{'is-invalid': checkContactNumber() }"  ng-maxlength="11" maxlength="11"  required>
                             <div class="invalid-feedback">
                                 Contact Number must be a number and has 11 digits
                             </div>
@@ -166,6 +168,7 @@
 
                     <div class="form-group">
                         <label for="guardians_number">Guardian's Contact Number Font Size</label>
+                        <small><b><i>(Characters Remaining: {{ countCharactersRemaining(formData.lrn,12) }})</i></b></small>
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" id="guardians_number" ng-model="settings.guardians_number.font_size" placeholder="Enter Guardian's Contact Number Font Size" required>
                         </div>
@@ -284,7 +287,19 @@
             }
         }
 
+        $scope.countCharactersRemaining = function(data,max) {
+            if(data == null){
+                return max;
+            }
+            remaining = max - data.length;
+            if(remaining<=0){
+                return '0';
+            }else{
+                return remaining;
+            }
+        }
+
 
     });
     </script>
-  </body>
+  </body>    

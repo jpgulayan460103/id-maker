@@ -61,6 +61,7 @@ switch (strtolower($students_data['students_grade_options']['value'])) {
   }
   *{
     color: black;
+    letter-spacing: -0.3pt;
   }
 
   .back {
@@ -99,7 +100,7 @@ switch (strtolower($students_data['students_grade_options']['value'])) {
       font-size: <?= $students_data['guardians_address']['font_size']."pt" ?>;
       height: 15;
       width: 150;
-      line-height: 12pt;
+      line-height: 10pt;
     }
     #guardians_number{
       font-family: 'ArialBoldCustom';
@@ -113,7 +114,7 @@ switch (strtolower($students_data['students_grade_options']['value'])) {
     #lrn{
       font-family: 'ArialBoldCustom';
       color: white;
-      top: <?=  $students_data['students_type']['value'] == 'SENIOR' ? ($students_data['lrn']['position']['top'] + 11) : $students_data['lrn']['position']['top'] ?>;
+      top: <?=  strtolower($students_data['students_grade_options']['value']) == 'grade 11 -' || strtolower($students_data['students_grade_options']['value']) == 'grade 12 -' ? ($students_data['lrn']['position']['top'] + 11) : $students_data['lrn']['position']['top'] ?>;
       left: <?= $students_data['lrn']['position']['left'] ?>;
       font-size: <?= $students_data['lrn']['font_size']."pt" ?>;
       height: 120px;
@@ -222,7 +223,7 @@ switch (strtolower($students_data['students_grade_options']['value'])) {
           <?= $students_data['students_grade']['value'] ?>
         </span>
     </div>
-    <?php if($students_data['students_type']['value'] == 'SENIOR'){  ?>
+    <?php if(strtolower($students_data['students_grade_options']['value']) == 'grade 11 -' || strtolower($students_data['students_grade_options']['value']) == 'grade 12 -'){  ?>
     <div class="fill-text front" id="students_strand">
         <span>
           <?= $students_data['students_strand']['value'] ?>
