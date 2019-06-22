@@ -51,3 +51,4 @@ $dompdf->render();
 
 // Output the generated PDF to Browser
 $dompdf->stream(urlencode($filename).".pdf");
+// $dompdf->stream(urlencode($filename).".pdf", array("Attachment" => false));

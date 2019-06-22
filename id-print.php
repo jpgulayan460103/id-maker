@@ -52,27 +52,29 @@ $students_data = json_decode($string, true);
 
     #guardians_name{
       top: <?= $students_data['guardians_name']['position']['top'] ?>;
-      left: <?= $students_data['guardians_name']['position']['left'] ?>;
+      left: <?= $students_data['guardians_name']['position']['left']-4.25 ?>;
       font-size: <?= $students_data['guardians_name']['font_size']."pt" ?>;
-      height: 12;
-      width: 131;
+      /* height: 12; */
+      width: 145.5;
+      letter-spacing: -0.3pt;
       /* line-height: 15pt */
     }
     #guardians_address{
-      top: <?= $students_data['guardians_address']['position']['top'] ?>;
-      left: <?= $students_data['guardians_address']['position']['left'] ?>;
+      top: <?= $students_data['guardians_address']['position']['top']+4 ?>;
+      left: <?= $students_data['guardians_address']['position']['left']-4.25 ?>;
       font-size: <?= $students_data['guardians_address']['font_size']."pt" ?>;
-      height: 15;
-      width: 131;
-      /* line-height: 15pt */
+      /* height: 15; */
+      width: 145.5;
+      line-height: 10pt;
+      letter-spacing: -0.3pt;
     }
     #guardians_number{
-      top: <?= $students_data['guardians_number']['position']['top'] ?>;
+      top: <?= $students_data['guardians_number']['position']['top']+15 ?>;
       left: <?= $students_data['guardians_number']['position']['left'] ?>;
       font-size: <?= $students_data['guardians_number']['font_size']."pt" ?>;
-      height: 15;
+      /* height: 15; */
       width: 131;
-      /* line-height: 15pt */
+      /* line-height: 20pt; */
     }
     #lrn{
       font-family: 'CalibriCustom';
@@ -87,21 +89,23 @@ $students_data = json_decode($string, true);
     }
     #students_name{
       top: <?= $students_data['students_name']['position']['top'] ?>;
-      left: <?= $students_data['students_name']['position']['left'] ?>;
+      left: <?= $students_data['students_name']['position']['left']+2 ?>;
       font-size: <?= $students_data['students_name']['font_size']."pt" ?>;
       height: 190px;
       line-height: 140px;
       width: 138;
       text-align: center;
+      letter-spacing: -0.3pt;
     }
     
     #students_grade{
       top: <?= $students_data['students_grade']['position']['top'] ?>;
-      left: <?= $students_data['students_grade']['position']['left'] ?>;
+      left: <?= $students_data['students_grade']['position']['left']+2 ?>;
       font-size: <?= $students_data['students_grade']['font_size']."pt" ?>;
       height: 120px;
       line-height: 90px;
       width: 124;
+      letter-spacing: -0.3pt;
       /* line-height: 11pt */
     }
     #students_type span{
