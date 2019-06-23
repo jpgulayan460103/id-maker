@@ -206,7 +206,7 @@
         $scope.createdStudentName = '';
         $scope.settings = {
             lrn: {position: {'top': 121.8, 'left': 278.4}, font_size: 8},
-            students_name: {position: {'top': 153.6, 'left': 208.8}, font_size: 13.32},
+            students_name: {position: {'top': 153.6, 'left': 208.8}, font_size: 11},
             students_grade: {position: {'top': 186.6, 'left': 215.8}, font_size: 9},
             students_type: {position: {'top': 207, 'left': 196}, font_size: 11.98},
             guardians_name: {position: {'top': 59.6, 'left': 25.8}, font_size: 11.73},
@@ -247,7 +247,7 @@
         $scope.createId = function() {
             $scope.hasError = false;
             $scope.createdLrn = false;
-            if($scope.formData.lrn && $scope.formData.lrn.trim() != "" && !$scope.checkContactNumber() && !$scope.checkLrn()){
+            if($scope.formData.lrn && $scope.formData.lrn.trim() != "" && !$scope.checkLrn()){
                 $scope.hasCreatedId = false;
                 $http({
                     method: 'POST',
