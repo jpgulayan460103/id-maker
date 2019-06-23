@@ -89,7 +89,7 @@ $students_data = json_decode($string, true);
     }
     #students_name{
       top: <?= $students_data['students_name']['position']['top'] ?>;
-      left: <?= $students_data['students_name']['position']['left']+2 ?>;
+      left: <?= $students_data['students_name']['position']['left'] ?>;
       font-size: <?= $students_data['students_name']['font_size']."pt" ?>;
       height: 190px;
       line-height: 140px;
@@ -100,7 +100,7 @@ $students_data = json_decode($string, true);
     
     #students_grade{
       top: <?= $students_data['students_grade']['position']['top'] ?>;
-      left: <?= $students_data['students_grade']['position']['left']+2 ?>;
+      left: <?= $students_data['students_grade']['position']['left'] ?>;
       font-size: <?= $students_data['students_grade']['font_size']."pt" ?>;
       height: 120px;
       line-height: 90px;

@@ -89,7 +89,7 @@
                         <label for="guardians_number">Guardian's Contact Number</label>
                         <small><b><i>(Characters Remaining: {{ countCharactersRemaining(formData.guardians_number,11) }})</i></b></small>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="guardians_number" ng-model="formData.guardians_number" placeholder="Enter Guardian's Contact Number"  ng-class="{'is-invalid': checkContactNumber() }" ng-maxlength="11" maxlength="11"  required>
+                            <input type="text" class="form-control" id="guardians_number" ng-model="formData.guardians_number" placeholder="Enter Guardian's Contact Number"  ng-class="{'is-invalid': checkContactNumber() }" ng-maxlength="11" maxlength="11">
                             <div class="invalid-feedback">
                                 Contact Number must be a number and has 11 digits
                             </div>
