@@ -42,13 +42,13 @@
                             <!-- <input type="text" class="form-control" id="students_type" ng-model="formData.students_type" placeholder="Enter Student Type" > -->
 
                             <div class="form-control">
-                                <input class="form-control-input" type="radio" ng-model="formData.students_type" id="exampleRadios1" value="ELEMENTARY DEPARTMENT" required>
+                                <input class="form-control-input" type="radio" ng-model="formData.students_type" name="students_type" id="exampleRadios1" value="ELEMENTARY DEPARTMENT" required>
                                 <label class="form-control-label" for="exampleRadios1">
                                     ELEMENTARY
                                 </label>
                             </div>
                             <div class="form-control">
-                                <input class="form-control-input" type="radio" ng-model="formData.students_type" id="exampleRadios2" value="HIGH SCHOOL DEPARTMENT">
+                                <input class="form-control-input" type="radio" ng-model="formData.students_type" name="students_type" id="exampleRadios2" value="HIGH SCHOOL DEPARTMENT" required>
                                 <label class="form-control-label" for="exampleRadios2">
                                     HIGH SCHOOL
                                 </label>
