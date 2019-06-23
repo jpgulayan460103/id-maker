@@ -258,7 +258,7 @@
             $scope.hasError = false;
             $scope.createdLrn = false;
             $scope.formData.students_grade = $scope.formData.students_grade_options ? $scope.formData.students_grade_options +" "+$scope.formData.students_section : "";
-            if($scope.formData.lrn && $scope.formData.lrn.trim() != "" && !$scope.checkContactNumber() && !$scope.checkLrn()){
+            if($scope.formData.lrn && $scope.formData.lrn.trim() != "" && !$scope.checkLrn()){
                 $scope.hasCreatedId = false;
                 $http({
                     method: 'POST',
