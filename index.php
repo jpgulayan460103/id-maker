@@ -228,7 +228,7 @@
         $scope.createdStudentName = '';
         $scope.settings = {
             lrn: {position: {'top': "127.8", 'left': "370.8"}, font_size: "9.55"},
-            students_name: {position: {'top': "102.6", 'left': "370.8"}, font_size: "13.53"},
+            students_name: {position: {'top': "102.6", 'left': "370.8"}, font_size: "11"},
             students_grade: {position: {'top': "116.6", 'left': "370.8"}, font_size: "9.55"},
             students_strand: {position: {'top': "127.8", 'left': "370.8"}, font_size: "9.55"},
             students_type: {position: {'top': "207", 'left': "196"}, font_size: "11.98"},
